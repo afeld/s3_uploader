@@ -1,0 +1,10 @@
+%img{src: session[:upload_url]}
+%p
+  %a{href: '/upload'}
+    Upload a different photo
+%ul
+  - (0..2).each do |i|
+    %li
+      %a{href: "/share/#{i}"}
+        Stache
+        = i

@@ -1,0 +1,10 @@
+{
+  "expiration": "2015-01-01T00:00:00Z",
+  "conditions": [ 
+    {"bucket": "<%= settings.s3_bucket %>"},
+    ["starts-with", "$key", "uploads/"],
+    {"success_action_redirect": "<%= settings.upload_callback_url %>"},
+    ["starts-with", "$Content-Type", ""],
+    ["content-length-range", 0, 10000000]
+  ]
+}

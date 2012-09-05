@@ -1,0 +1,12 @@
+%h1 Magic Mirror
+%form{action: "http://s3.amazonaws.com/#{settings.s3_bucket}", method: 'post', enctype: 'multipart/form-data'}
+  %input{type: 'hidden', name: 'key', value: upload_key}
+  %input{type: 'hidden', name: 'AWSAccessKeyId', value: settings.s3_key}
+  %input{type: 'hidden', name: 'success_action_redirect', value: settings.upload_callback_url}
+  %input{type: 'hidden', name: 'policy', value: settings.s3_policy}
+  %input{type: 'hidden', name: 'signature', value: settings.s3_signature}
+  %input{type: 'hidden', name: 'Content-Type', value: 'image/jpeg'}
+
+  Upload a file:
+  %input{name: 'file', type: 'file'}
+  %input{type: 'submit', value: 'Submit'}
